@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>An Introduction to Modern Web Technologies</title>
+<title>An Introduction to HTML, CSS & JavaScript</title>
 <link href="csss/slideshow.css" rel="stylesheet" />
 <link href="csss/reusable.css" rel="stylesheet" />
 <link href="shared/intro-outro.css" rel="stylesheet" />
@@ -22,12 +22,12 @@ function writeList(script) {
 
 <header id="intro" class="slide dont-resize" data-source="flickr.com/photos/billward/16601966117">
 	<h1>
-		An Introduction to HTML &amp; CSS
+		An Introduction to HTML, CSS &amp; JavaScript
 		<span class="note">for anyone &amp; everyone</span>
 	</h1>
 	<p class="attribution">Forked and updated by
 		<a href="http://abraham.mx">Abraham Velazquez</a> (<a href="http://twitter.com/lunaroja">@lunaroja</a>)<br />
-		Originally by <a href="http://lea.verou.me">Lea Verou</a> (<a href="http://twitter.com/leaverou">@LeaVerou</a>)</p>
+		Original content by <a href="http://lea.verou.me">Lea Verou</a> (<a href="http://twitter.com/leaverou">@LeaVerou</a>)</p>
 </header>
 
 <section id="html">
@@ -394,7 +394,57 @@ function writeList(script) {
 				&lt;/style></span>
 			&lt;/head>
 			&lt;body>
-				<span class="delayed">&lt;h1 style="color: white; background: black;">Title&lt;/h1></span>
+				<span class="delayed">&lt;h1>Title&lt;/h1></span>
+			&lt;/body>
+			&lt;/html>
+		</code></pre>
+		<details class="notes">
+			<p>3 ways to apply CSS to your page:</p>
+			<ul>
+				<li>Via an external file and the <code class="element">link</code> element. This is the recommended way.</li>
+				<li>By writing CSS in the <code class="element">style</code> element</li>
+				<li>For one-off cases, by using the <code class="attribute">style</code> attribute</li>
+				<li>Both <code class="element">link</code> and <code class="element">style</code> elements are only supposed to go in the <code class="element">head</code>.</li>
+			</ul>
+		</details>
+	</article>
+
+
+	<article class="cheatsheet slide" title="Simple Selectors">
+		<h1>Simple Selectors</h1>
+		<fieldset>
+			<legend>Most Common selectors</legend>
+			<code data-href="Type_selectors" data-frequency="10">element { }</code>
+			<code data-href="Class_selectors" data-frequency="12">.class { }</code>
+			<code data-href="Id_selectors" data-frequency="8">#id { }</code>
+		</fieldset>
+
+		<details class="notes">
+			<ul>
+				<li>The universal selector, type selector, class selector, id selector, attribute selectors, pseudo-classes are called <strong><em>simple selectors</em></strong></li>
+				<li>Concatenating simple selectors intersects them (i.e. it is equivalent to an AND operation).
+					The result is called a <strong><em>Compound Selector</em></strong>
+					E.g. <code>a.docs:hover</code> matches an <code>&lt;a></code> element with the class <code>docs</code> that is currently being hovered.
+				</li>
+			</ul>
+		</details>
+	</article>
+
+	<article class="slide" id="using-css-classes" title="Using CSS Classes">
+		<pre class="language-markup"><code>
+			&lt;!DOCTYPE html>
+			&lt;html>
+			&lt;head>
+				&lt;link rel="stylesheet" href="style.css">
+				<span>&lt;style>
+					.headline {
+						color: white;
+						background: black;
+					}
+				&lt;/style></span>
+			&lt;/head>
+			&lt;body>
+				<span>&lt;h1 class="headline">Title&lt;/h1></span>
 			&lt;/body>
 			&lt;/html>
 		</code></pre>
@@ -467,25 +517,6 @@ function writeList(script) {
 		</script>
 	</article>
 
-	<article class="cheatsheet slide" title="Simple Selectors">
-		<h1>Simple Selectors</h1>
-		<fieldset>
-			<legend>Most Common selectors</legend>
-			<code data-href="Type_selectors" data-frequency="10">element { }</code>
-			<code data-href="Class_selectors" data-frequency="12">.class { }</code>
-			<code data-href="Id_selectors" data-frequency="8">#id { }</code>
-		</fieldset>
-
-		<details class="notes">
-			<ul>
-				<li>The universal selector, type selector, class selector, id selector, attribute selectors, pseudo-classes are called <strong><em>simple selectors</em></strong></li>
-				<li>Concatenating simple selectors intersects them (i.e. it is equivalent to an AND operation).
-					The result is called a <strong><em>Compound Selector</em></strong>
-					E.g. <code>a.docs:hover</code> matches an <code>&lt;a></code> element with the class <code>docs</code> that is currently being hovered.
-				</li>
-			</ul>
-		</details>
-	</article>
 
 	<article class="isolated horizontal demo slide" title="Inheritance">
 		<style data-slide>
