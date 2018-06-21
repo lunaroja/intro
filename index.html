@@ -997,6 +997,286 @@
 	</section>
 
 
+  <section id="js">
+			<header class="slide">
+				<h1>JavaScript
+					<div class="note">(Open your consoles!)</div>
+				</h1>
+			</header>
+
+			<article class="slide dont-resize" title="The Console">
+				<img src="img/console.png" alt="">
+				<details class="notes">
+					<ul>
+						<li>The Console tab allows us to experiment with JavaScript.</li>
+						<li>
+							<code>$0</code> always refers to the currently selected element.
+							<code>$1</code> to the previously selected element,
+							<code>$2</code> to the one before it and so on.</li>
+						<li>
+							<code>element.textContent</code> gives us the content of an element as text. Try changing it!</li>
+						<li>Other useful properties you could play with:
+							<ul data-autolink="API/Node">
+								<li>
+									<code>parentNode</code>
+								</li>
+								<li>
+									<code>childNodes</code>
+								</li>
+								<li>
+									<code>children</code>
+								</li>
+								<li>
+									<code>previousSibling</code>
+								</li>
+								<li>
+									<code>nodeType</code>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</details>
+			</article>
+
+
+			<article class="slide" title="Adding JS">
+				<pre class="language-markup"><code>
+				&lt;!DOCTYPE html>
+				&lt;html>
+				&lt;head>
+					&lt;script src="code.js">&lt;/script>
+				&lt;/head>
+				&lt;body>
+					<span class="delayed">&lt;script>
+						console.log("hi");
+					&lt;/script></span>
+				&lt;/body>
+				&lt;/html>
+			</code></pre>
+				<details class="notes">
+					<p>2 ways to run JS in your page:</p>
+					<ul>
+						<li>Via an external file and the
+							<code class="element">script</code> element. This is the recommended way.</li>
+						<li>By writing JS inside the
+							<code class="element">script</code> element</li>
+						<li>
+							<code class="element">script</code> elements can go anywhere in your HTML, they are not restricted to the
+							<code class="element">head</code>.</li>
+					</ul>
+				</details>
+			</article>
+
+			<article class="runnable slide" title="Defining Variables">
+				<textarea class="editor">var age = 32;
+	console.log(age);
+	console.log(age + 1);</textarea>
+
+				<details class="notes">
+					<ul>
+						<li>You can define variables with
+							<code>let</code>.</li>
+						<li>You can output content to the console with
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log">
+								<code>console.log()</code>
+							</a>. This is very useful for debugging.</li>
+						<li>Open the console and click run to see the result.</li>
+					</ul>
+				</details>
+			</article>
+
+			<article class="runnable slide" title="Numbers, Strings Booleans">
+				<textarea class="editor">
+	var fullName = "Abraham Velazquez"; // String
+	var age = 32; // Number
+	console.log(fullName);
+	console.log(age);
+	</textarea>
+			</article>
+
+
+			<article class="runnable slide" id="arrays" title="Arrays & Arrow functions">
+				<textarea class="editor">
+	let numbers = [1, 2, 3, 4, 5]; // Array
+	let names = ['Leo', 'Abraham', 'Max']; // Array
+	console.log(numbers);
+	console.log(names);
+	</textarea>
+				<details class="notes">
+					<ul>
+						<li>Arrays are defined with brackets (
+							<code>[]</code>)</li>
+						<li>Functions are defined in many ways. We have already seen
+							<code>function(){ /* code */ }</code>. The shortest is the notation shown here (
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">
+								<em>arrow functions</em>
+							</a>).</li>
+						<li>The
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">
+								<code>map()</code>
+							</a> method of arrays allows you to transform them into something else.</li>
+						<li>
+							<strong>Activity:</strong> Go to
+							<a href="https://web.mit.edu">mit.edu</a> again, and create an array with the textual content of all headings.</li>
+					</ul>
+				</details>
+			</article>
+
+			<article class="runnable slide" title="Booleans">
+					<textarea class="editor">
+		var dayTime = true; // Boolean
+		var nightTime = false; // Boolean
+		console.log(dayTime);
+		console.log(nightTime);
+		</textarea>
+				</article>
+
+				<article class="runnable slide" title="Conditionals">
+						<textarea class="editor">
+	var dayTime = true; // Boolean
+	console.log(dayTime);
+
+	if (dayTime) {
+		console.log('The sun is out!');
+	}
+			</textarea>
+					</article>
+
+				<article class="runnable slide" title="Conditionals">
+						<textarea class="editor">
+	var dayTime = true; // Boolean
+	console.log(dayTime);
+
+	if (dayTime === false) {
+		console.log('The moon is out!');
+	}
+			</textarea>
+					</article>
+
+
+				<article class="runnable slide" title="Conditionals">
+						<textarea class="editor">
+	var nightTime = false; // Boolean
+	console.log(nightTime);
+
+	if (nightTime) {
+		console.log('The moon is out!');
+	} else {
+		console.log('The sun is out!');
+	}
+			</textarea>
+					</article>
+
+
+			<article class="runnable slide" title="Object literals">
+				<textarea class="editor">
+var person = {
+	"name": "Abraham",
+	"age": 32,
+};
+
+console.log(person.name)
+console.log(person.age)
+	</textarea>
+				<details class="notes">
+					<ul>
+						<li>Object literals are defined via braces (
+							<code>{}</code>). They are similar to dictionaries or maps in other languages.</li>
+						<li>There are also constructors, just like other OOP languages. In fact, object literals are implicitly calling
+							<code>new Object()</code> and the brackets notation for arrays is implicitly calling
+							<code>new Array()</code>.</li>
+						<li>Property names can have any character. Property names that only consist of letters, numbers, $, _ don’t need quotes.</li>
+						<li>Property names can be added or deleted at any point.</li>
+						<li>Take note of the two different notations to refer to property values. The brackets notation can be used for computed
+							properties too!</li>
+					</ul>
+				</details>
+			</article>
+
+			<article class="runnable slide" title="Template literals">
+					<textarea class="editor">let person = {
+	"name": "Abraham",
+	"mood": "😃"
+};
+// Template Literals
+console.log(`${person.name} is ${person.mood}`);
+		</textarea>
+					<details class="notes">
+						<ul>
+							<li>Object literals are defined via braces (
+								<code>{}</code>). They are similar to dictionaries or maps in other languages.</li>
+							<li>There are also constructors, just like other OOP languages. In fact, object literals are implicitly calling
+								<code>new Object()</code> and the brackets notation for arrays is implicitly calling
+								<code>new Array()</code>.</li>
+							<li>Property names can have any character. Property names that only consist of letters, numbers, $, _ don’t need quotes.</li>
+							<li>Property names can be added or deleted at any point.</li>
+							<li>Take note of the two different notations to refer to property values. The brackets notation can be used for computed
+								properties too!</li>
+						</ul>
+					</details>
+				</article>
+
+		<article class="runnable slide" title="Function invocation vs function reference">
+				<textarea class="editor">
+var double = function(x) {
+	return x*2;
+}
+console.log(double(42));
+console.log(double());
+console.log(double);</textarea>
+				<details class="notes">
+					<ul>
+						<li>In JavaScript everything is an object, even functions!</li>
+						<li>Functions in JS are just objects of type
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">
+								<code>Function</code>
+							</a> that can also be called (via parentheses).</li>
+						<li>Important to distinguish
+							<strong>reference to a function</strong> (no parentheses) from
+							<strong>calling a function</strong> (with parentheses).</li>
+						<li>You can assign functions to variables.</li>
+					</ul>
+				</details>
+			</article>
+
+			<article class="runnable slide" title="Function invocation">
+					<textarea class="editor">var howOld = function(person) {
+	return `${person.name} is ${person.old} years old`;
+}
+var abraham = {
+	"name": "Abraham",
+	"age": 32
+};
+console.log(howOld(abraham));
+</textarea>
+
+				</article>
+
+			</section>
+
+		<article class="slide" data-type="Resources">
+			<h1>JavaScript</h1>
+
+			<ul>
+				<li>
+					<a href="http://htmldog.com/guides/javascript/">JavaScript Tutorials</a>
+				</li>
+				<li>
+					<a href="http://eloquentjavascript.net/">Eloquent JavaScript (Free ebook)</a>
+				</li>
+				<li>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN Docs about JavaScript</a>
+				</li>
+				<li>
+					<a href="https://www.ecma-international.org/ecma-262/8.0/index.html">ECMAScript 8 Standard</a>
+				</li>
+				<li>
+					<a href="https://dom.spec.whatwg.org/">DOM Specification</a>
+				</li>
+			</ul>
+		</article>
+
+
 	<footer class="dark slide dont-resize">
 		<h1>Thank you!</h1>
 	</footer>
